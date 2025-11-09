@@ -1,0 +1,8 @@
+groups:
+  - name: ClueBot NG Report Interface
+    rules:
+      - alert: ReportInterfaceDown
+        expr: probe_success{instance="cluebotng.toolforge.org"} == 0
+        for: 2m
+        annotations:
+          summary: Report Interface Is Down
