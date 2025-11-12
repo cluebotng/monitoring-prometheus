@@ -2,13 +2,13 @@ groups:
   - name: ClueBot III
     rules:
       - alert: BotNotEditedRecently
-        expr: time() - cbng_monitoring_last_user_contribution_time{username="ClueBot NG", domain="en.wikipedia.org"} > 43200
+        expr: time() - cbng_monitoring_last_user_contribution_time{username="ClueBot NG", domain="en.wikipedia.org"} > 18000
         for: 5m
         labels:
           update_wiki_host: en.wikipedia.org
           update_wiki_page: User:ClueBot_III/running
         annotations:
-          summary: ClueBot III has not edited for > 12 hours
+          summary: ClueBot III has not edited for > 5 hours
 
       - alert: BotHasLowEditCount
         expr: cbng_monitoring_recent_user_contributions_count{username="ClueBot III", domain="en.wikipedia.org"} < 200
