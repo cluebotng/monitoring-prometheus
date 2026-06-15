@@ -1,10 +1,14 @@
 [project]
 name = "monitoring-prometheus"
 version = "1.0"
-requires-python = ">=3.12" # T408108
+requires-python = ">=3.14"
 dependencies = [
-    "PyYaml",
+    "PyYaml"
 ]
+
+[tool.poetry.build]
+generate-setup-file = false
+script = "setup.py"
 
 [tool.poetry.group.test.dependencies]
 tox = "*"
@@ -12,12 +16,8 @@ tox-current-env = "*"
 black = "*"
 ruff = "*"
 
-[tool.black]
-line-length = 120
-
 [tool.ruff]
 line-length = 120
 
-[tool.poetry.build]
-generate-setup-file = false
-script = "scripts/install.py"
+[tool.black]
+line-length = 120
