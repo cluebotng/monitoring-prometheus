@@ -1,1 +1,1 @@
-prometheus: python scripts/entrypoint.py
+prometheus: monitoring_prometheus/entrypoint.py
