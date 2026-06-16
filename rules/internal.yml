@@ -3,12 +3,12 @@ groups:
     rules:
       - alert: AlertManagerDown
         expr: up{job="alertmanager"} == 0
-        for: 1m
+        for: 5m
         annotations:
           summary: The alertmanager is down
 
       - alert: BlackBoxExporterDown
         expr: up{job="blackbox-exporter"} == 0
-        for: 1m
+        for: 5m
         annotations:
           summary: The blackbox exporter is down
