@@ -3,17 +3,17 @@ groups:
     rules:
       # 'Critical' tools
       - alert: Latest Deployment Has Failed For ClueBot NG
-        expr: max by (job, tool, source_tool) (toolforge_monitoring_components_deployment_latest_successful{tool="cluebotng"}) == 0
+        expr: max by (tool, source_tool) (toolforge_monitoring_components_deployment_latest_successful{tool="cluebotng"}) == 0
         for: 15m
 
       - alert: Latest Deployment Has Failed For ClueBot III
-        expr: max by (job, tool, source_tool) (toolforge_monitoring_components_deployment_latest_successful{tool="cluebot3"}) == 0
+        expr: max by (tool, source_tool) (toolforge_monitoring_components_deployment_latest_successful{tool="cluebot3"}) == 0
         for: 15m
 
       - alert: Latest Deployment Has Failed For ClueBot NG Review
-        expr: max by (job, tool, source_tool) (toolforge_monitoring_components_deployment_latest_successful{tool="cluebotng-review"}) == 0
+        expr: max by (tool, source_tool) (toolforge_monitoring_components_deployment_latest_successful{tool="cluebotng-review"}) == 0
         for: 15m
 
       - alert: Latest Deployment Has Failed
-        expr: max by (job, tool, source_tool) (toolforge_monitoring_components_deployment_latest_successful{tool!="cluebotng", tool!="cluebot3", tool!="cluebotng-review"}) == 0
+        expr: max by (tool, source_tool) (toolforge_monitoring_components_deployment_latest_successful{tool!="cluebotng", tool!="cluebot3", tool!="cluebotng-review"}) == 0
         for: 1d
