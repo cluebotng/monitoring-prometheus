@@ -20,8 +20,10 @@ def download_release():
             "-L",
             "-o",
             f"/tmp/prometheus-{TARGET_RELEASE}.linux-amd64.tar.gz",
-            f"https://github.com/prometheus/prometheus/releases/download/v{TARGET_RELEASE}/"
-            f"prometheus-{TARGET_RELEASE}.linux-amd64.tar.gz",
+            (
+                f"https://github.com/prometheus/prometheus/releases/download/v{TARGET_RELEASE}/"
+                f"prometheus-{TARGET_RELEASE}.linux-amd64.tar.gz"
+            ),
         ],
         check=True,
     )
