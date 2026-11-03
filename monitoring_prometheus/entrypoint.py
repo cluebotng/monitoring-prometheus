@@ -59,11 +59,11 @@ def generate_configuration() -> str:
             "static_configs": [
                 {
                     "targets": [
-                        "cluebotng.toolforge.org",
-                        "cluebotng-review.toolforge.org",
-                        "cluebotng-editsets.toolforge.org",
-                        "cluebotng-staging.toolforge.org",
-                        "cluebotng-trainer.toolforge.org",
+                        "https://cluebotng.toolforge.org/internal/health/",
+                        "https://cluebotng-review.toolforge.org/internal/health/",
+                        "https://cluebotng-editsets.toolforge.org/_/health",
+                        "https://cluebotng-staging.toolforge.org/internal/health/",
+                        "https://cluebotng-trainer.toolforge.org/_/health",
                     ]
                 }
             ],
@@ -72,7 +72,12 @@ def generate_configuration() -> str:
                     "source_labels": ["__address__"],
                     "target_label": "__param_target",
                 },
-                {"source_labels": ["__param_target"], "target_label": "instance"},
+                {
+                    "source_labels": ["__param_target"],
+                    "target_label": "instance",
+                    "regex": "https?://([^/:]+).*",
+                    "replacement": "$1",
+                },
                 {
                     "target_label": "__address__",
                     "replacement": "blackbox-exporter:9115",
