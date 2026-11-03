@@ -49,6 +49,7 @@ def generate_configuration() -> str:
     config["scrape_configs"].append(
         {
             "job_name": "blackbox",
+            "scrape_timeout": "30s",
             "metrics_path": "/probe",
             "params": {
                 "module": [
